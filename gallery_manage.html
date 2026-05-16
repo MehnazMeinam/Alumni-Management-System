@@ -1,0 +1,38 @@
+{% extends 'ProjectAdmin/admin_dashboard.html' %}
+
+{% block content %}
+<h2>Gallery Management</h2>
+
+<a href="{% url 'Management_app:add_gallery' %}">Upload Image</a>
+
+<br><br>
+
+<table border="1">
+
+<tr>
+<th>Image</th>
+<th>Title</th>
+<th>Action</th>
+</tr>
+
+{% for img in images %}
+
+<tr>
+<td>
+<img src="{{ img.image.url }}" width="120">
+</td>
+
+<td>
+{{ img.title }}
+</td>
+
+<td>
+<a href="{% url 'Management_app:delete_gallery' img.id %}">Delete</a>
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+{% endblock %}

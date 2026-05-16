@@ -1,0 +1,34 @@
+{% extends 'ProjectAdmin/admin_dashboard.html' %}
+
+{% block content %}
+<h2>Job Management</h2>
+
+<a href="{% url 'Management_app:add_job' %}">Add Job</a>
+
+<br><br>
+
+<table border="1">
+
+<tr>
+<th>Title</th>
+<th>Company</th>
+<th>Location</th>
+<th>Action</th>
+</tr>
+
+{% for job in jobs %}
+
+<tr>
+<td>{{ job.title }}</td>
+<td>{{ job.company }}</td>
+<td>{{ job.location }}</td>
+
+<td>
+<a href="{% url 'Management_app:delete_job' job.id %}">Delete</a>
+</td>
+</tr>
+
+{% endfor %}
+
+</table>
+{% endblock %}

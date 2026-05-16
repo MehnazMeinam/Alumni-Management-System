@@ -1,0 +1,27 @@
+{% extends 'ProjectAdmin/admin_dashboard.html' %}
+
+{% block content %}
+<h2>Add Event</h2>
+
+<form method="POST" enctype="multipart/form-data">
+{% csrf_token %}
+
+Title<br>
+<input type="text" name="title"><br><br>
+
+Description<br>
+<textarea name="description"></textarea><br><br>
+
+Date<br>
+<input type="date" name="date"><br><br>
+
+Location<br>
+<input type="text" name="location"><br><br>
+
+Image<br>
+<input type="file" name="image"><br><br>
+
+<button type="submit">Create Event</button>
+
+</form>
+{% endblock %}

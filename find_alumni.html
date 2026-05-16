@@ -1,0 +1,45 @@
+{% extends 'Alumni/alumni_dashboard.html' %}
+
+{% block content %}
+
+<h2>Alumni Directory</h2>
+
+<form method="GET">
+    <input type="text" name="search" placeholder="Search alumni name...">
+    <button type="submit">Search</button>
+</form>
+<br>
+
+<table border="1" cellpadding="10">
+    <tr>
+        <th>Photo</th>
+        <th>Name</th>
+        <th>Batch</th>
+        <th>Department</th>
+        <th>Company</th>
+        <th>Job Title</th>
+        <th>LinkedIn</th>
+    </tr>
+
+    {% for alumni in alumni_list %}
+    <tr>
+        <td>
+            {% if alumni.photo %}
+                <img src="{{ alumni.photo.url }}" width="60">
+            {% endif %}
+        </td>
+        <td>{{ alumni.username }}</td>
+        <td>{{ alumni.batch }}</td>
+        <td>{{ alumni.department }}</td>
+        <td>{{ alumni.company }}</td>
+        <td>{{ alumni.job_title }}</td>
+        <td>
+            {% if alumni.linkedin %}
+                <a href="{{ alumni.linkedin }}" target="_blank">Profile</a>
+            {% endif %}
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

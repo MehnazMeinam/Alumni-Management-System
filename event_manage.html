@@ -1,0 +1,34 @@
+{% extends 'ProjectAdmin/admin_dashboard.html' %}
+
+{% block content %}
+<h2>Event Management</h2>
+
+<a href="{% url 'Management_app:add_event' %}">Add Event</a>
+
+<br><br>
+
+<table border="1">
+
+<tr>
+<th>Title</th>
+<th>Date</th>
+<th>Location</th>
+<th>Action</th>
+</tr>
+
+{% for event in events %}
+
+<tr>
+<td>{{ event.title }}</td>
+<td>{{ event.date }}</td>
+<td>{{ event.location }}</td>
+
+<td>
+<a href="{% url 'Management_app:delete_event' event.id %}">Delete</a>
+</td>
+</tr>
+
+{% endfor %}
+
+</table>
+{% endblock %}

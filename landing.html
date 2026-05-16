@@ -1,0 +1,72 @@
+{% extends 'base_public.html' %}
+{% block content %}
+
+<!-- Slideshow -->
+<div id="alumniCarousel" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+
+    {% for image in slider_images %}
+    <div class="carousel-item {% if forloop.first %}active{% endif %}">
+      <img src="{{ image.image.url }}" 
+           class="d-block w-100" 
+           style="height:500px; object-fit:cover;">
+      <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded p-3">
+        <h3>{{ image.title }}</h3>
+      </div>
+    </div>
+    {% endfor %}
+
+  </div>
+
+  <!-- Controls -->
+  <button class="carousel-control-prev" type="button" data-bs-target="#alumniCarousel" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </button>
+
+  <button class="carousel-control-next" type="button" data-bs-target="#alumniCarousel" data-bs-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </button>
+</div>
+
+<section class="text-center py-5">
+    <h1 class="display-4 fw-bold">Welcome to Alumni Network</h1>
+    <p class="lead">Stay connected. Explore opportunities. Reconnect with your batchmates.</p>
+    <div class="mt-4">
+        <a href="{% url 'Management_app:register' %}" class="btn btn-primary btn-lg me-3">Join Now</a>
+        <a href="{% url 'Management_app:login' %}" class="btn btn-outline-primary btn-lg">Login</a>
+    </div>
+</section>
+
+<section class="container my-5">
+    <h2 class="mb-4">Get Engaged</h2>
+
+    <div class="row">
+
+        <!-- Events -->
+        <div class="col-md-6 mb-4">
+            <h4><a href="{% url 'Management_app:events_list' %}" class="text-decoration-none">Events</a></h4>
+            <p>Stay updated with reunions and alumni meetups.</p>
+        </div>
+
+        <!-- Jobs -->
+        <div class="col-md-6 mb-4">
+            <h4><a href="{% url 'Management_app:job_list' %}" class="text-decoration-none">Jobs</a></h4>
+            <p>Explore job opportunities posted by alumni and partners.</p>
+        </div>
+
+        <!-- Find Alumni -->
+        <div class="col-md-6 mb-4">
+            <h4><a href="{% url 'Management_app:findalumni' %}" class="text-decoration-none">Find Alumni</a></h4>
+            <p>Search and connect with fellow alumni by batch or department.</p>
+        </div>
+
+        <!-- View Gallery -->
+        <div class="col-md-6 mb-4">
+            <h4><a href="{% url 'Management_app:gallery' %}" class="text-decoration-none">View Gallery</a></h4>
+            <p>Browse photos from alumni events and reunions.</p>
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}

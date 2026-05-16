@@ -1,0 +1,32 @@
+{% extends 'Alumni/alumni_dashboard.html' %}
+
+{% block content %}
+<h2>Edit Profile</h2>
+
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <label>Email:</label>
+    <input type="email" name="email" value="{{ user.email }}"><br><br>
+
+    <label>Batch:</label>
+    <input type="text" name="batch" value="{{ user.batch }}"><br><br>
+
+    <label>Department:</label>
+    <input type="text" name="department" value="{{ user.department }}"><br><br>
+
+    <label>Job Title:</label>
+    <input type="text" name="job_title" value="{{ user.job_title }}"><br><br>
+
+    <label>Company:</label>
+    <input type="text" name="company" value="{{ user.company }}"><br><br>
+
+    <label>LinkedIn:</label>
+    <input type="url" name="linkedin" value="{{ user.linkedin }}"><br><br>
+
+    <label>Profile Photo:</label>
+    <input type="file" name="photo"><br><br>
+
+    <button type="submit">Update</button>
+</form>
+{% endblock %}

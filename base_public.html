@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>MIT Alumni Portal</title>
+
+    <!-- Copy CSS links from your dashboard template -->
+    <link href="{% static 'assets/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
+
+    <!-- If your template has vendor CSS, include them too -->
+</head>
+
+<body>
+
+<!-- Simple Top Navbar (Styled using template CSS) -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" href="{% url 'Management_app:landing' %}">
+            MIT Alumni Portal
+        </a>
+
+        <div>
+            <a href="{% url 'Management_app:register' %}" class="btn btn-primary">Register</a>
+            <a href="{% url 'Management_app:login' %}" class="btn btn-outline-light me-2">Login</a>
+        </div>
+    </div>
+</nav>
+
+<!-- Dynamic Content Goes Here -->
+<div class="container mt-5">
+    {% block content %}
+    {% endblock %}
+</div>
+
+<!-- Footer -->
+<footer class="text-center mt-5 p-4 bg-light">
+    © MIT Alumni Management System
+</footer>
+
+<!-- Copy JS files from your template -->
+<script src="{% static 'assets/js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'assets/js/script.js' %}"></script>
+
+</body>
+</html>

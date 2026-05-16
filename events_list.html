@@ -1,0 +1,26 @@
+{% extends 'base_public.html' %}
+
+{% block content %}
+
+<h2>Upcoming Events</h2>
+
+{% for event in events %}
+
+<div style="border:1px solid #ddd; padding:15px; margin-bottom:20px;">
+
+    {% if event.image %}
+        <img src="{{ event.image.url }}" width="300">
+    {% endif %}
+
+    <h3>{{ event.title }}</h3>
+
+    <p>{{ event.description }}</p>
+
+    <p><strong>Date:</strong> {{ event.date }}</p>
+    <p><strong>Location:</strong> {{ event.location }}</p>
+
+</div>
+
+{% endfor %}
+
+{% endblock %}
